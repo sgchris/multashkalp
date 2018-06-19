@@ -58,10 +58,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12 col-md-8">
-                            <img src="images/All/1.jpg" class="rounded demo-image" />
-                            <img src="images/Fashion/1.jpg" class="rounded demo-image" />
-                            <img src="images/Beauty/1.jpg" class="rounded demo-image" />
-                            <img src="images/Jewelry/1.jpg" class="rounded demo-image" />
+                            <img src="images/All/1.jpg" class="photo-type-all rounded demo-image" />
+                            <img src="images/Fashion/1.jpg" class="photo-type-fashion rounded demo-image" />
+                            <img src="images/Beauty/1.jpg" class="photo-type-beauty rounded demo-image" />
+                            <img src="images/Jewelry/1.jpg" class="photo-type-jewelry rounded demo-image" />
                         </div>
 
                         <!-- title and contact -->
@@ -96,7 +96,7 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" 
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
@@ -130,12 +130,50 @@
                 max: 18
             }
         };
-        var updateImages = function() {
+        var updateImage = function(type) {
+            var typeUCFirst = type.charAt(0).toUpperCase() + type.substr(1);
+            $image = $('.photo-type-' + type);
+            $image.fadeOut('fast', function() {
+                var currentImage = $image.attr('src');
+                
+                // get the current image number
+                var imageNumberRegex = /\/(\d+?)\.jpg$/i;
+                var currentImageNumber = currentImage.match(imageNumberRegex);
+                if (currentImageNumber[1]) {
+                    currentImageNumber = parseInt(currentImageNumber[1]);
+                }
+                var newImageNumber = currentImageNumber < mainImages[typeUCFirst]['max'] ? 
+                    currentImageNumber + 1 : 1;
+                var newImage = currentImage.replace(imageNumberRegex, '/' + newImageNumber + '.jpg');
 
+                $image.attr('src', newImage).fadeIn('fast');
+            });
+        };
+
+        var updateImages = function() {
+            var changeInterval = 1000; // ms
+            setTimeout(function() {
+                updateImage('all');
+            }, 1 * changeInterval);
+            setTimeout(function() {
+                updateImage('fashion');
+            }, 2 * changeInterval);
+            setTimeout(function() {
+                updateImage('beauty');
+            }, 3 * changeInterval);
+            setTimeout(function() {
+                updateImage('jewelry');
+            }, 4 * changeInterval);
         }
 
         $(document).ready(function () {
             updateWhatsAppUrl();
+
+            // images rotation
+            setTimeout(function() {
+                updateImages();
+                setInterval(updateImages, 5000);
+            }, 2000);
         });
     </script>
 </body>

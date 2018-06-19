@@ -58,15 +58,15 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12 col-md-8">
-                            <img src="http://picsum.photos/370/440" class="rounded demo-image" />
-                            <img src="http://picsum.photos/370/440" class="rounded demo-image" />
-                            <img src="http://picsum.photos/370/440" class="rounded demo-image" />
-                            <img src="http://picsum.photos/370/440" class="rounded demo-image" />
+                            <img src="images/All/1.jpg" class="rounded demo-image" />
+                            <img src="images/Fashion/1.jpg" class="rounded demo-image" />
+                            <img src="images/Beauty/1.jpg" class="rounded demo-image" />
+                            <img src="images/Jewelry/1.jpg" class="rounded demo-image" />
                         </div>
 
                         <!-- title and contact -->
                         <div class="col-sm-12 col-md-4 contact-form-panel">
-                            <h1 class="text-right" dir="rtl">מרינה מושקוביץ צילום</h1>
+                            <h1 class="text-right" dir="rtl">מרינה מושקוביץ</h1>
                             <h4 class="text-right" dir="rtl">צילום אופנה, ביוטי, וידאו ,תכשיטים</h4>
                             <p class="text-justify" dir="rtl">
                                 צלמת מקצועים עם נסיון רב בתחום. סטודיו לצילום אופנה וביוטי עם גישה יצירתית. בין לקוחותינו מעצבי אופנה, מאפרות מקצועיות, מעצבי
@@ -111,6 +111,28 @@
                 $whatsappLink.attr('href', $whatsappLink.attr('href').replace('web.', 'api.'))
             }
         };
+
+        var mainImages = {
+            'All': {
+                current: 1,
+                max: 9
+            },
+            'Beauty': {
+                current: 1,
+                max: 8
+            },
+            'Jewelry': {
+                current: 1,
+                max: 12
+            },
+            'Fashion': {
+                current: 1,
+                max: 18
+            }
+        };
+        var updateImages = function() {
+
+        }
 
         $(document).ready(function () {
             updateWhatsAppUrl();

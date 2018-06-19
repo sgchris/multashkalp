@@ -3,13 +3,18 @@
 }
 
 .demo-image {
-    width: 45%;
+    max-width: 45%;
+    max-height: 450px;
     margin-right: 4%;
     margin-bottom: 4%;
 }
 
 .contact-form-panel {
     padding-top: 100px;
+}
+
+.contact-form-panel h1 {
+    font-size: 3.5rem;
 }
 
 .contact-form-panel h4 {

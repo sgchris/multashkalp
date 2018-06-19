@@ -7,3 +7,16 @@
     margin-right: 4%;
     margin-bottom: 4%;
 }
+
+.contact-form-panel {
+    padding-top: 100px;
+}
+
+.contact-form-panel h4 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.contact-form * {
+    direction: rtl;
+}

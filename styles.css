@@ -1,6 +1,9 @@
 .main-stripe {
     background: #F5F5F5;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
+
 .demo-images-wrapper {
     position: relative;
 }
@@ -13,7 +16,7 @@
 }
 
 .contact-form-panel {
-    padding-top: 100px;
+    padding-top: 50px;
 }
 
 .contact-form-panel h1 {
@@ -27,4 +30,9 @@
 
 .contact-form * {
     direction: rtl;
+}
+
+.video-row {
+    padding-top: 50px;
+    height: 400px;
 }

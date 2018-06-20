@@ -55,7 +55,7 @@
         }).hide();
         $newImage.insertBefore($image);
 
-        $newImage.fadeIn('fast', function() {
+        $newImage.fadeIn(function() {
             $('.photo-type-' + type + ':gt(0)').remove();
 
             // make the new image back to "normal"
@@ -79,11 +79,11 @@
         }, (i++) * changeInterval);
 
         setTimeout(function () {
-            updateImage('jewelry');
-        }, (i++) * changeInterval);
-
-        setTimeout(function () {
             updateImage('fashion');
+        }, (i++) * changeInterval);
+        
+        setTimeout(function () {
+            updateImage('jewelry');
         }, (i++) * changeInterval);
 
         setTimeout(function () {

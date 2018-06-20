@@ -1,8 +1,11 @@
 .main-stripe {
     background: #F5F5F5;
 }
-
+.demo-images-wrapper {
+    position: relative;
+}
 .demo-image {
+    display: inline-block;
     width: 300px;
     height: 450px;
     margin-right: 4%;

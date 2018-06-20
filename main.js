@@ -1,4 +1,4 @@
-(function() {
+(function () {
     var mainImages = {
         'all': {
             current: 1,
@@ -29,7 +29,7 @@
     };
 
     // get {top, left} of a jQuery element
-    var getElementOffset = function($obj) {
+    var getElementOffset = function ($obj) {
         var childPos = $obj.offset();
         var parentPos = $obj.parent().offset();
         return {
@@ -39,20 +39,20 @@
     }
 
     // change main image to the next one
-    var updateImage = function(type) {
+    var updateImage = function (type) {
         var imageNumberRegex = /\/(\d+?)\.jpg$/i;
 
         // get the image object
         $image = $('.photo-type-' + type);
         imageOffset = getElementOffset($image);
         var currentImageSrc = $image.attr('src');
-        
+
         // prepare the new image src
         var currentImageNumber = currentImageSrc.match(imageNumberRegex);
         if (currentImageNumber[1]) {
             currentImageNumber = parseInt(currentImageNumber[1]);
         }
-        var newImageNumber = currentImageNumber < mainImages[type]['max'] ? 
+        var newImageNumber = currentImageNumber < mainImages[type]['max'] ?
             currentImageNumber + 1 : 1;
         var newImageSrc = currentImageSrc.replace(imageNumberRegex, '/' + newImageNumber + '.jpg');
 
@@ -85,22 +85,24 @@
         });
     };
 
-    var updateImages = function() {
-        var i = 1, 
-            changeInterval = 800; // ms
+    var updateImages = function () {
+        var i = 1,
+            changeInterval = 1000; // ms
 
-        setTimeout(function() {
-            updateImage('beauty');
-        }, (i++) * changeInterval);
-        setTimeout(function() {
-            updateImage('jewelry');
-        }, (i++) * changeInterval);
-
-        setTimeout(function() {
+        setTimeout(function () {
             updateImage('all');
         }, (i++) * changeInterval);
-        setTimeout(function() {
+
+        setTimeout(function () {
+            updateImage('jewelry');
+        }, (i++) * changeInterval);
+        
+        setTimeout(function () {
             updateImage('fashion');
+        }, (i++) * changeInterval);    
+        
+        setTimeout(function () {
+            updateImage('beauty');
         }, (i++) * changeInterval);
     }
 
@@ -108,7 +110,7 @@
         updateWhatsAppUrl();
 
         // images rotation
-        setTimeout(function() {
+        setTimeout(function () {
             updateImages();
             setInterval(updateImages, 8000);
         }, 2000);

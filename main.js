@@ -1,21 +1,9 @@
 (function () {
-    var mainImages = {
-        'all': {
-            current: 1,
-            max: 9
-        },
-        'beauty': {
-            current: 1,
-            max: 8
-        },
-        'jewelry': {
-            current: 1,
-            max: 12
-        },
-        'fashion': {
-            current: 1,
-            max: 18
-        }
+    var maxImagesInType = {
+        'all': 9,
+        'beauty': 8,
+        'jewelry': 12,
+        'fashion': 18
     };
 
     // udpate the URL of WhatsApp send message link
@@ -45,18 +33,16 @@
         // get the image object
         $image = $('.photo-type-' + type);
         imageOffset = getElementOffset($image);
-        var currentImageSrc = $image.attr('src');
-
+        
         // prepare the new image src
+        var currentImageSrc = $image.attr('src');
         var currentImageNumber = currentImageSrc.match(imageNumberRegex);
         if (currentImageNumber[1]) {
             currentImageNumber = parseInt(currentImageNumber[1]);
         }
-        var newImageNumber = currentImageNumber < mainImages[type]['max'] ?
-            currentImageNumber + 1 : 1;
+        var newImageNumber = currentImageNumber < maxImagesInType[type] ? currentImageNumber + 1 : 1;
         var newImageSrc = currentImageSrc.replace(imageNumberRegex, '/' + newImageNumber + '.jpg');
 
-        // prepare the new image object
         $newImage = $image.clone();
         $newImage.attr('src', newImageSrc);
         $newImage.css({
@@ -67,14 +53,13 @@
             height: $image.outerHeight() + 'px',
             zIndex: 10
         }).hide();
-
         $newImage.insertBefore($image);
 
         $newImage.fadeIn('fast', function() {
-            $image.remove();
+            $('.photo-type-' + type + ':gt(0)').remove();
 
             // make the new image back to "normal"
-            $newImage.css({
+            $('.photo-type-' + type).css({
                 position: '',
                 zIndex: '',
                 left: '',
@@ -96,11 +81,11 @@
         setTimeout(function () {
             updateImage('jewelry');
         }, (i++) * changeInterval);
-        
+
         setTimeout(function () {
             updateImage('fashion');
-        }, (i++) * changeInterval);    
-        
+        }, (i++) * changeInterval);
+
         setTimeout(function () {
             updateImage('beauty');
         }, (i++) * changeInterval);
@@ -112,7 +97,9 @@
         // images rotation
         setTimeout(function () {
             updateImages();
-            setInterval(updateImages, 8000);
+            setInterval(function () {
+                updateImages()
+            }, 8000);
         }, 2000);
     });
 })();

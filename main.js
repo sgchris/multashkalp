@@ -31,9 +31,9 @@
         var imageNumberRegex = /\/(\d+?)\.jpg$/i;
 
         // get the image object
-        $image = $('.photo-type-' + type);
-        imageOffset = getElementOffset($image);
-        
+        var $image = $('.photo-type-' + type);
+        var imageOffset = getElementOffset($image);
+
         // prepare the new image src
         var currentImageSrc = $image.attr('src');
         var currentImageNumber = currentImageSrc.match(imageNumberRegex);
@@ -43,7 +43,7 @@
         var newImageNumber = currentImageNumber < maxImagesInType[type] ? currentImageNumber + 1 : 1;
         var newImageSrc = currentImageSrc.replace(imageNumberRegex, '/' + newImageNumber + '.jpg');
 
-        $newImage = $image.clone();
+        var $newImage = $image.clone();
         $newImage.attr('src', newImageSrc);
         $newImage.css({
             position: 'absolute',
@@ -55,7 +55,7 @@
         }).hide();
         $newImage.insertBefore($image);
 
-        $newImage.fadeIn(function() {
+        $newImage.fadeIn(function () {
             $('.photo-type-' + type + ':gt(0)').remove();
 
             // make the new image back to "normal"
@@ -81,7 +81,7 @@
         setTimeout(function () {
             updateImage('fashion');
         }, (i++) * changeInterval);
-        
+
         setTimeout(function () {
             updateImage('jewelry');
         }, (i++) * changeInterval);

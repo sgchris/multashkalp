@@ -61,3 +61,12 @@ video {
 .input-error {
     background: yellow;
 }
+
+
+
+@media (max-width: 1200px) {
+    .demo-image {
+        width: 90%;
+        height: auto;
+    }
+}

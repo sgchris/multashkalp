@@ -1,3 +1,7 @@
+body {
+    position: relative;
+    padding-bottom: 150px;
+}
 .main-stripe {
     background: #F5F5F5;
     padding-top: 50px;
@@ -35,4 +39,21 @@
 video {
     max-width: 100%;
     padding-top: 50px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 100px;
+    line-height: 100px;
+    background-color: #f5f5f5;
+}
+
+.footer a {
+    color: #FFF;
+}
+.footer a:hover {
+    text-decoration: underline;
 }

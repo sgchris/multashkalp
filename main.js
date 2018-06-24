@@ -91,6 +91,45 @@
         }, (i++) * changeInterval);
     }
 
+    var validator = new FormValidator('contact-form', [{
+        name: 'phone',
+        display: 'required',
+        rules: 'required|numeric|min_length[8]|max_length[14]'
+    }, {
+        name: 'email',
+        rules: 'valid_email'
+    }], function(errors, event) {
+        console.log('errors', errors, 'event', event);
+    });
+
+    /*
+    window.submitForm = function() {
+        var $phone = $('.contact-form input[name="phone"]');
+        var $email = $('.contact-form input[name="email"]');
+
+        // check phone
+        if ($phone.val().trim() == '') {
+            $phone.addClass('input-error');
+            return false;
+        } else {
+            $phone.removeClass('input-error');
+        }
+
+        // check phone only numbers
+        if (!/^\d+$/.test($phone.val().trim())) {
+            $phone.addClass('input-error');
+            alert('מספר טלפון צריך להיות מורכב ממספרים בלבד');
+            return false;
+        } else {
+            $phone.removeClass('input-error');
+        }
+
+        
+        console.log('submitting');
+        return false;
+    };
+    */
+    
     $(document).ready(function () {
         updateWhatsAppUrl();
 

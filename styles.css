@@ -57,3 +57,7 @@ video {
 .footer a:hover {
     text-decoration: underline;
 }
+
+.input-error {
+    background: yellow;
+}

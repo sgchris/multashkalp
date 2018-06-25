@@ -91,6 +91,68 @@
         }, (i++) * changeInterval);
     }
 
+
+    function validateEmail(email) {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+    function formatDate(date) {
+        var monthNames = [
+          "January", "February", "March",
+          "April", "May", "June", "July",
+          "August", "September", "October",
+          "November", "December"
+        ];
+      
+        var day = date.getDate();
+        var monthIndex = date.getMonth();
+        var year = date.getFullYear();
+      
+        return day + ' ' + monthNames[monthIndex] + ' ' + year;
+      }
+      
+
+    window.submitForm = function() {
+        var $form = $('.contact-form');
+        var $phone = $form.find('input[name="phone"]').removeClass('input-error');
+        var $phoneErr = $form.find('.input-error-message-phone').css('visibility', 'hidden');
+        var phoneVal = $phone.val().trim();
+        var $email = $form.find('input[name="email"]').removeClass('input-error');
+        var $emailErr = $form.find('.input-error-message-email').css('visibility', 'hidden');
+        var emailVal = $email.val().trim();
+
+        if (!/^\d{8,13}$/.test(phoneVal)) {
+            $phone.addClass('input-error');
+            $phoneErr.css('visibility', 'visible').text('מספר טלפון צריך להיות מורכב ממספרים בלבד');
+            return false;
+        }
+
+        if (emailVal.length > 0 && !validateEmail(emailVal)) {
+            $email.addClass('input-error');
+            $emailErr.css('visibility', 'visible').text('יש למלא אימייל תקני (או להשאיר את השדה ריק)');
+            return false;
+        }
+
+        $.ajax('http://multashka.com', {
+            method: 'post',
+            data: {
+                'homepage-intro-form': '1',
+                'homepage-intro-name': 'פנייה מדף פרומו',
+                'homepage-intro-phone': phoneVal,
+                'homepage-intro-email': emailVal,
+                'homepage-intro-message': 'פנייה מדף פרומו ' + formatDate(new Date()),
+                'homepage-intro-submit': 'send',
+            },
+            success: function(res) {
+
+            }
+        })
+
+        return false;
+    };
+
+    /*
     var validator = new FormValidator('contact-form', [{
         name: 'phone',
         display: 'required',
@@ -99,6 +161,7 @@
         name: 'email',
         rules: 'valid_email'
     }], function(errors, event) {
+        console.log('submitted');
         var $form = $('.contact-form');
         var $phone = $form.find('input[name="phone"]').removeClass('input-error');
         var $phoneErr = $form.find('.input-error-message-phone').css('visibility', 'hidden');
@@ -119,45 +182,22 @@
             return;
         } else {
             $iframe = $('iframe#submit-form-iframe');
+            console.log('initial iframe', $iframe.length);
             if ($iframe.length == 0) {
-                $iframe = $('<iframe>')
+                $iframe = $('<iframe></iframe>')
                     .attr('id', 'submit-form-iframe')
                     .attr('width', '1')
                     .attr('height', '1')
                     .css('visibility', 'hidden')
-                $(document).append($iframe);
+                $('body').append($iframe);
+                console.log('appended iframe', $iframe.length);
             }
 
             $form.attr('target', 'submit-form-iframe').submit();
         }
-    });
 
-    /*
-    window.submitForm = function() {
-        var $phone = $('.contact-form input[name="phone"]');
-        var $email = $('.contact-form input[name="email"]');
-
-        // check phone
-        if ($phone.val().trim() == '') {
-            $phone.addClass('input-error');
-            return false;
-        } else {
-            $phone.removeClass('input-error');
-        }
-
-        // check phone only numbers
-        if (!/^\d+$/.test($phone.val().trim())) {
-            $phone.addClass('input-error');
-            alert('מספר טלפון צריך להיות מורכב ממספרים בלבד');
-            return false;
-        } else {
-            $phone.removeClass('input-error');
-        }
-
-        
-        console.log('submitting');
         return false;
-    };
+    });
     */
     
     $(document).ready(function () {

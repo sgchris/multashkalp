@@ -76,12 +76,11 @@
                             <form class="contact-form" name="contact-form" onsubmit="return submitForm();">
                                 <h4 class="text-right">יצירת קשר</h4>
                                 <input type="text" name="phone" class="form-control" placeholder="מספר טלפון - מספרים בלבד ללא רווחים">
-                                <br />
+                                <small class="input-error-message input-error-message-phone">רק מספרים, ללא מקף, רווחים או כל תו אחר</small>
                                 <input type="email" name="email" class="form-control" placeholder="כתובת אימייל (לא חובה)">
-                                <br />
+                                <small class="input-error-message input-error-message-email">יש להזין כתובת אימייל תקנית, לדוגמה "jon@snow.com"</small>
                                 <button type="submit" class="btn btn-primary btn-block">חיזרו אליי</button>
                             </form>
-
                             <hr />
 
                             <a href="tel:+972543013513" class="btn btn-outline-secondary d-block" title="להיתקשר ישירות">

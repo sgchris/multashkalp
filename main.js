@@ -99,7 +99,37 @@
         name: 'email',
         rules: 'valid_email'
     }], function(errors, event) {
-        console.log('errors', errors, 'event', event);
+        var $form = $('.contact-form');
+        var $phone = $form.find('input[name="phone"]').removeClass('input-error');
+        var $phoneErr = $form.find('.input-error-message-phone').css('visibility', 'hidden');
+        var $email = $form.find('input[name="email"]').removeClass('input-error');
+        var $emailErr = $form.find('.input-error-message-email').css('visibility', 'hidden');
+        
+        if (errors && errors.length > 0) {
+            errors.forEach(function(errData) {
+                if (errData.name == 'phone') {
+                    $phone.addClass('input-error');
+                    $phoneErr.css('visibility', 'visible');
+                }
+                if (errData.name == 'email') {
+                    $email.addClass('input-error');
+                    $emailErr.css('visibility', 'visible');
+                }
+            });
+            return;
+        } else {
+            $iframe = $('iframe#submit-form-iframe');
+            if ($iframe.length == 0) {
+                $iframe = $('<iframe>')
+                    .attr('id', 'submit-form-iframe')
+                    .attr('width', '1')
+                    .attr('height', '1')
+                    .css('visibility', 'hidden')
+                $(document).append($iframe);
+            }
+
+            $form.attr('target', 'submit-form-iframe').submit();
+        }
     });
 
     /*

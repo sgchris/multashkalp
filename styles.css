@@ -36,6 +36,13 @@ body {
     direction: rtl;
 }
 
+.contact-form .input-error-message {
+    visibility: hidden;
+    display: block;
+    text-align: right;
+    color: #C11;
+}
+
 video {
     max-width: 100%;
     padding-top: 50px;

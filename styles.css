@@ -43,6 +43,15 @@ body {
     color: #C11;
 }
 
+.contact-form-thank-you {
+    direction: rtl;
+    text-align: right;
+    font-weight: bold;
+    padding-top: 50px;
+    box-sizing: border-box;
+    display: none;
+}
+
 video {
     max-width: 100%;
     padding-top: 50px;

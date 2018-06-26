@@ -31,7 +31,7 @@
         var imageNumberRegex = /\/(\d+?)\.jpg$/i;
 
         // get the image object
-        var $image = $('.photo-type-' + type);
+        var $image = $('.photo-type-' + type + ':eq(0)');
         var imageOffset = getElementOffset($image);
 
         // prepare the new image src
@@ -67,6 +67,8 @@
                 width: '',
                 height: ''
             });
+
+            delete $image;
         });
     };
 
@@ -108,8 +110,11 @@
         var day = date.getDate();
         var monthIndex = date.getMonth();
         var year = date.getFullYear();
+
+        var hours = date.getHours();
+        var minutes = date.getHours();
       
-        return day + ' ' + monthNames[monthIndex] + ' ' + year;
+        return day + ' ' + monthNames[monthIndex] + ' ' + year + ' ' + hours + ':' + minutes;
       }
       
 
@@ -121,6 +126,7 @@
         var $email = $form.find('input[name="email"]').removeClass('input-error');
         var $emailErr = $form.find('.input-error-message-email').css('visibility', 'hidden');
         var emailVal = $email.val().trim();
+        var $submit = $form.find('.contact-form-submit');
 
         if (!/^\d{8,13}$/.test(phoneVal)) {
             $phone.addClass('input-error');
@@ -134,71 +140,41 @@
             return false;
         }
 
+        $submit.attr('disabled', 'disabled');
+        console.log('sending request');
         $.ajax('http://multashka.com', {
-            method: 'post',
+            type: 'POST',
             data: {
                 'homepage-intro-form': '1',
                 'homepage-intro-name': 'פנייה מדף פרומו',
                 'homepage-intro-phone': phoneVal,
                 'homepage-intro-email': emailVal,
-                'homepage-intro-message': 'פנייה מדף פרומו ' + formatDate(new Date()),
+                'homepage-intro-message': 'Contact us from the landing page ' + formatDate(new Date()),
                 'homepage-intro-submit': 'send',
             },
             success: function(res) {
-
+                var height = $('.contact-form').height();
+                $('.contact-form').hide();
+                $('.contact-form-thank-you')
+                    .css('height', height)
+                    .text('תודה על פנייתך, נשמח לחזור אלייך בהקדם')
+                    .show();
+            },
+            error: function(xhr, textStatus) {
+                var height = $('.contact-form').height();
+                $('.contact-form').hide();
+                $('.contact-form-thank-you')
+                    .css('height', height)
+                    .html('לצערינו ארעה שגיאה' + '<br>' + 'תנסו ליצור קשר דרך פייסבוק או אינסטגרם, להתקשר ישירות, או נסו מאוחר יותר')
+                    .show();
+            },
+            complete: function() {
+                $submit.removeAttr('disabled');
             }
-        })
-
+        });
+        
         return false;
     };
-
-    /*
-    var validator = new FormValidator('contact-form', [{
-        name: 'phone',
-        display: 'required',
-        rules: 'required|numeric|min_length[8]|max_length[14]'
-    }, {
-        name: 'email',
-        rules: 'valid_email'
-    }], function(errors, event) {
-        console.log('submitted');
-        var $form = $('.contact-form');
-        var $phone = $form.find('input[name="phone"]').removeClass('input-error');
-        var $phoneErr = $form.find('.input-error-message-phone').css('visibility', 'hidden');
-        var $email = $form.find('input[name="email"]').removeClass('input-error');
-        var $emailErr = $form.find('.input-error-message-email').css('visibility', 'hidden');
-        
-        if (errors && errors.length > 0) {
-            errors.forEach(function(errData) {
-                if (errData.name == 'phone') {
-                    $phone.addClass('input-error');
-                    $phoneErr.css('visibility', 'visible');
-                }
-                if (errData.name == 'email') {
-                    $email.addClass('input-error');
-                    $emailErr.css('visibility', 'visible');
-                }
-            });
-            return;
-        } else {
-            $iframe = $('iframe#submit-form-iframe');
-            console.log('initial iframe', $iframe.length);
-            if ($iframe.length == 0) {
-                $iframe = $('<iframe></iframe>')
-                    .attr('id', 'submit-form-iframe')
-                    .attr('width', '1')
-                    .attr('height', '1')
-                    .css('visibility', 'hidden')
-                $('body').append($iframe);
-                console.log('appended iframe', $iframe.length);
-            }
-
-            $form.attr('target', 'submit-form-iframe').submit();
-        }
-
-        return false;
-    });
-    */
     
     $(document).ready(function () {
         updateWhatsAppUrl();

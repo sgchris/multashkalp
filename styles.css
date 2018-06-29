@@ -11,12 +11,20 @@ body {
 .demo-images-wrapper {
     position: relative;
 }
-.demo-image {
+.demo-image-wrapper {
+    position: relative;
     display: inline-block;
     width: 300px;
     height: 450px;
     margin-right: 4%;
     margin-bottom: 4%;
+}
+.demo-image {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .contact-form-panel {
@@ -81,8 +89,10 @@ video {
 
 
 @media (max-width: 1200px) {
-    .demo-image {
-        width: 90%;
+    .demo-image-wrapper {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 10px;
         height: auto;
     }
 }

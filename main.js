@@ -32,7 +32,7 @@
 
         // get the image object
         var $image = $('.photo-type-' + type + ':eq(0)');
-        var imageOffset = getElementOffset($image);
+        //var imageOffset = getElementOffset($image);
 
         // prepare the new image src
         var currentImageSrc = $image.attr('src');
@@ -47,10 +47,10 @@
         $newImage.attr('src', newImageSrc);
         $newImage.css({
             position: 'absolute',
-            left: imageOffset['left'],
-            top: imageOffset['top'],
-            width: $image.outerWidth() + 'px',
-            height: $image.outerHeight() + 'px',
+            left: 0,
+            top: 0,
+            width: '100%',
+            height: '100%',
             zIndex: 10
         }).hide();
         $newImage.insertBefore($image);
@@ -141,7 +141,6 @@
         }
 
         $submit.attr('disabled', 'disabled');
-        console.log('sending request');
         $.ajax('http://multashka.com', {
             type: 'POST',
             data: {
@@ -150,7 +149,7 @@
                 'homepage-intro-phone': phoneVal,
                 'homepage-intro-email': emailVal,
                 'homepage-intro-message': 'Contact us from the landing page ' + formatDate(new Date()),
-                'homepage-intro-submit': 'send',
+                'homepage-intro-submit': 'send-from-lp',
             },
             success: function(res) {
                 var height = $('.contact-form').height();

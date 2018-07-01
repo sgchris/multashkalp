@@ -1,3 +1,7 @@
+import $ from 'jquery';
+import 'bootstrap';
+import './styles.css'
+
 (function () {
     var maxImagesInType = {
         'all': 9,
@@ -68,7 +72,7 @@
                 height: ''
             });
 
-            delete $image;
+            //delete $image;
         });
     };
 

@@ -1,9 +1,29 @@
 (function() {
-    
+
     function validateEmail(email) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(String(email).toLowerCase());
     }
+
+
+    function formatDate(date) {
+        var monthNames = [
+          "January", "February", "March",
+          "April", "May", "June", "July",
+          "August", "September", "October",
+          "November", "December"
+        ];
+      
+        var day = date.getDate();
+        var monthIndex = date.getMonth();
+        var year = date.getFullYear();
+
+        var hours = date.getHours();
+        var minutes = date.getHours();
+      
+        return day + ' ' + monthNames[monthIndex] + ' ' + year + ' ' + hours + ':' + minutes;
+    }
+    
 
     window.submitForm = function() {
         var $form = $('.contact-form');
@@ -32,10 +52,10 @@
             type: 'POST',
             data: {
                 'homepage-intro-form': '1',
-                'homepage-intro-name': 'פנייה מדף פרומו',
+                'homepage-intro-name': '2פנייה מדף פרומו',
                 'homepage-intro-phone': phoneVal,
                 'homepage-intro-email': emailVal,
-                'homepage-intro-message': 'Contact us from the landing page ' + formatDate(new Date()),
+                'homepage-intro-message': 'Contact us from the landing page 2 ' + formatDate(new Date()),
                 'homepage-intro-submit': 'send-from-lp',
             },
             success: function(res) {

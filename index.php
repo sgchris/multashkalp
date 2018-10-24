@@ -98,12 +98,12 @@
                 <a href="http://multashka.com" target="_blank" class="btn btn-primary btn-block btn-lg"><i class="fa fa-external-link-alt"></i> צפייה בפורטפוליו המלא</a>
             </div>
             <div class="col-12 col-sm-6 px-3 py-1">
-                <button class="btn btn-primary btn-block btn-lg"><i class="fa fa-pencil-alt"></i> יצירת קשר</button>
+                <button type="button" onclick="openContactUs(1);" class="btn btn-primary btn-block btn-lg"><i class="fa fa-pencil-alt"></i> יצירת קשר</button>
             </div>
         </div>
     </div>
 
-    <div class="container rtl mt-5 contact-us-form-wrapper" style="background: #EEE;">
+    <div class="container rtl mt-5 contact-us-form-wrapper contact-us-form-wrapper-1 d-none" style="background: #EEE;">
         <?php include __DIR__.'/assets/contact-us-form.html'; ?>
     </div>
 
@@ -233,7 +233,6 @@
             </ul>
         </div>
     </nav>
-
 
 
     <!-- Bootstrap core JavaScript

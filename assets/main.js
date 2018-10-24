@@ -23,7 +23,7 @@
       
         return day + ' ' + monthNames[monthIndex] + ' ' + year + ' ' + hours + ':' + minutes;
     }
-    
+
 
     window.submitForm = function() {
         var $form = $('.contact-form');
@@ -81,4 +81,9 @@
         
         return false;
     };
+
+
+    window.openContactUs = function(num) {
+        $('.contact-us-form-wrapper-' + num).removeClass('d-none');
+    }
 })();

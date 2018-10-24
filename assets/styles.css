@@ -1,0 +1,33 @@
+body {
+    padding-top: 70px;
+    background: transparent url("../images/photo_bg_pattern.png") center center repeat;
+}
+
+.rtl {
+    direction: rtl;
+    text-align: initial;
+}
+
+.ltr {
+    direction: ltr;
+    text-align: initial;
+}
+#homepageCarousel .carousel-item img {
+    max-height: 600px;
+    max-width: 100%;
+}
+.contact-form .input-error-message {
+    visibility: hidden;
+    display: block;
+    text-align: right;
+    color: #C11;
+}
+
+.contact-form-thank-you {
+    direction: rtl;
+    text-align: right;
+    font-weight: bold;
+    padding-top: 50px;
+    box-sizing: border-box;
+    display: none;
+}

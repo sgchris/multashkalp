@@ -31,3 +31,27 @@ body {
     box-sizing: border-box;
     display: none;
 }
+
+.categories-bullets .card {
+    border: 0;
+}
+    
+.categories-bullets .card-header {
+    background: transparent;
+    border-bottom: 1px solid #EEE
+        
+}
+
+.categories-bullets button .fa-chevron-left {
+    display: none;
+}
+.categories-bullets button .fa-chevron-down {
+    display: inline-block;
+}
+
+.categories-bullets button.collapsed .fa-chevron-left {
+    display: inline-block;
+}
+.categories-bullets button.collapsed .fa-chevron-down {
+    display: none;
+}

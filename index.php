@@ -137,7 +137,7 @@
     ?>
 
     <!-- Accordion -->
-    <div class="container rtl mt-5">
+    <div class="container rtl mt-5 categories-bullets">
         <div class="row"><div class="col-12 col-md-8">
             <h2>תחומי התמחות</h2>
             <div class="accordion rtl" id="accordion">
@@ -145,10 +145,10 @@
                 <div class="card">
                     <div class="card-header" id="heading-<?php echo $i; ?>">
                         <h5 class="mb-0">
-                            <button class="btn btn-link" type="button" 
+                            <button class="btn btn-link collapsed" type="button" 
                                 data-toggle="collapse" data-target="#collapse-<?php echo $i; ?>" 
                                 aria-expanded="true" aria-controls="collapse-<?php echo $i; ?>">
-                                <?php echo $bullet['title']; ?>
+                                <i class="fa fa-chevron-left"></i><i class="fa fa-chevron-down"></i>&nbsp;&nbsp;<?php echo $bullet['title']; ?>
                             </button>
                         </h5>
                     </div>

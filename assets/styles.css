@@ -12,6 +12,13 @@ body {
     direction: ltr;
     text-align: initial;
 }
+
+.navbar-whatsapp-link {
+    padding: 5px 10px;
+    background: #25D366;
+    margin: 0 20px 0 0;
+}
+
 #homepageCarousel .carousel-item img {
     max-height: 600px;
     max-width: 100%;
@@ -41,7 +48,11 @@ body {
     border-bottom: 1px solid #EEE
         
 }
-
+.categories-bullets button,
+.categories-bullets button:focus,
+.categories-bullets button:hover {
+    text-decoration: none;
+}
 .categories-bullets button .fa-chevron-left {
     display: none;
 }

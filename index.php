@@ -22,6 +22,9 @@
         <a class="navbar-brand h1" href="#">מרינה מושקוביץ צילום
             <small class="d-none d-lg-inline">אופנה, ביוטי, וידאו, תכשיטים</small>
         </a>
+        <a class="navbar-brand h1 navbar-whatsapp-link" href="#">
+            <i class="fab fa-whatsapp"></i> <span class="d-none d-lg-inline-block">פנייה ב-WhatsApp</span>
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavBar" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -189,6 +192,10 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-5 rtl">
         <a class="navbar-brand" href="https://web.whatsapp.com/send?phone=+972543013513">
             <small><i class="fab fa-whatsapp" style="color: #25d366;"></i> מרינה מושקוביץ</small>
+        </a>
+
+        <a class="navbar-brand h1 navbar-whatsapp-link" href="#">
+            <i class="fab fa-whatsapp"></i> <span class="d-none d-lg-inline-block">פנייה ב-WhatsApp</span>
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent_footer" aria-controls="navbarSupportedContent_footer" aria-expanded="false" aria-label="Toggle navigation">

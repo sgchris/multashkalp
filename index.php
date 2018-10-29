@@ -19,10 +19,10 @@
 
 <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark rtl">
-        <a class="navbar-brand h1" href="#">מרינה מושקוביץ צילום
+        <a class="navbar-brand h1" href="">מרינה מושקוביץ צילום
             <small class="d-none d-lg-inline">אופנה, ביוטי, וידאו, תכשיטים</small>
         </a>
-        <a class="navbar-brand h1 navbar-whatsapp-link" href="#">
+        <a class="navbar-whatsapp-link" href="javascript:openWhatsapp();">
             <i class="fab fa-whatsapp"></i> <span class="d-none d-lg-inline-block">פנייה ב-WhatsApp</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavBar" aria-controls="navbarSupportedContent"
@@ -44,7 +44,7 @@
                         <i class="fab fa-facebook-square"></i> Facebook</a>
                 </li>
                 <li class="nav-item active">
-                    <a href="https://web.whatsapp.com/send?phone=+972543013513" target="_blank" class="nav-link whatsapp-link">
+                    <a href="javascript:openWhatsapp();" target="_blank" class="nav-link whatsapp-link">
                         <i class="fab fa-whatsapp"></i> WhatsApp</a>
                 </li>
                 <li class="nav-item active">
@@ -190,6 +190,9 @@
         </div>
     </div>
 
+    <br />
+    <br />
+    
     <div class="container">
         <div class="row ltr">
         <div class="col-12 col-md-6 offset-md-3 rtl">
@@ -202,11 +205,11 @@
 
     <!-- bottom footer -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-5 rtl">
-        <a class="navbar-brand" href="https://web.whatsapp.com/send?phone=+972543013513">
-            <small><i class="fab fa-whatsapp" style="color: #25d366;"></i> מרינה מושקוביץ</small>
+        <a class="navbar-brand" href="">
+            מרינה מושקוביץ
         </a>
 
-        <a class="navbar-brand h1 navbar-whatsapp-link" href="#">
+        <a class="navbar-brand h1 navbar-whatsapp-link" href="javascript:openWhatsapp();">
             <i class="fab fa-whatsapp"></i> <span class="d-none d-lg-inline-block">פנייה ב-WhatsApp</span>
         </a>
 
@@ -238,7 +241,7 @@
 
         
                 <li class="nav-item">
-                    <a class="nav-link" href="https://web.whatsapp.com/send?phone=+972543013513" target="_blank" class="nav-link whatsapp-link">
+                    <a class="nav-link" href="javascript:openWhatsapp();" target="_blank" class="nav-link whatsapp-link">
                         <i class="fab fa-whatsapp"></i> WhatsApp
                     </a>
                 </li>

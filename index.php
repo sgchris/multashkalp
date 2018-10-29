@@ -96,17 +96,17 @@
 
     <!-- contact us buttons -->
     <div class="container rtl mt-5">
-        <div class="row">
-            <div class="col-12 col-sm-6 px-3 py-1">
-                <a href="http://multashka.com" target="_blank" class="btn btn-primary btn-block btn-lg"><i class="fa fa-external-link-alt"></i> צפייה בפורטפוליו המלא</a>
-            </div>
-            <div class="col-12 col-sm-6 px-3 py-1">
+        <div class="row ltr">
+            <div class="col-8 offset-2 col-sm-6 offset-sm-0 px-3 py-1 rtl"><!-- padding X, padding Y -->
                 <button type="button" onclick="openContactUs(1);" class="btn btn-primary btn-block btn-lg"><i class="fa fa-pencil-alt"></i> יצירת קשר</button>
+            </div>
+            <div class="col-8 offset-2 col-sm-6 offset-sm-0 px-3 py-1 rtl">
+                <a href="http://multashka.com" target="_blank" class="btn btn-outline-primary btn-block btn-lg"><i class="fa fa-external-link-alt"></i> צפייה בפורטפוליו</a>
             </div>
         </div>
     </div>
 
-    <div class="container rtl mt-5 contact-us-form-wrapper contact-us-form-wrapper-1 d-none" style="background: #EEE;">
+    <div class="container rtl mt-5 contact-us-form-wrapper contact-us-form-wrapper-1 d-none">
         <?php include __DIR__.'/assets/contact-us-form.html'; ?>
     </div>
 
@@ -138,6 +138,8 @@
         ],
     ]
     ?>
+
+    <hr /> 
 
     <!-- Accordion -->
     <div class="container rtl mt-5 categories-bullets">
@@ -185,6 +187,16 @@
                 אנחנו מסייעים בהפקה ובליהוק דוגמניות, על מנת ליצור מוצר סופי ברמה ובאיכות הכי גבוהים בתעשייה.
                 </p>
             </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row ltr">
+        <div class="col-12 col-md-6 offset-md-3 rtl">
+            <a href="tel:+972543013513" class="d-block direct-phone-call-link" title="להיתקשר ישירות">
+                <i class="fas fa-phone"></i> 054-30-13-513
+            </a>
+        </div>
         </div>
     </div>
 

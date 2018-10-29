@@ -25,6 +25,17 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+
+.contact-us-form-wrapper {
+    border-top: 1px solid #27a745;
+    border-bottom: 1px solid #27a745;
+    background: #d4e7ff;
+}
+
+.contact-form {
+    padding: 1rem;
+}
+
 .contact-form .input-error-message {
     visibility: hidden;
     display: block;
@@ -39,6 +50,11 @@ body {
     padding-top: 50px;
     box-sizing: border-box;
     display: none;
+}
+
+.direct-phone-call-link {
+    font-size: 2em;
+    text-align: center;
 }
 
 .categories-bullets .card {

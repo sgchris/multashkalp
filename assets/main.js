@@ -86,4 +86,35 @@
     window.openContactUs = function(num) {
         $('.contact-us-form-wrapper-' + num).removeClass('d-none');
     }
+
+    // https://stackoverflow.com/questions/1977871/check-if-an-image-is-loaded-no-errors-with-jquery
+    function isImageOk(img) {
+        return !(!img.complete || img.naturalWidth === 0);
+    }
+
+    var setBgForImg = function(img, counter) {
+        if (!isImageOk(img)) {
+            if (!counter || counter < 10) {
+                setTimeout(function() {
+                    setBgForImg(img, (!counter ? 1 : ++counter));
+                }, 500);
+            }
+        } else {
+            var vibrant = new Vibrant(img);
+            var swatches = vibrant.swatches();
+            //var bgColor = swatches.DarkMuted.getHex();
+            var bgColor1 = swatches.Muted.getHex();
+            var bgColor2 = swatches.DarkMuted.getHex();
+            //$(img).parents('.carousel-item').css('background', bgColor);
+            $(img).parents('.carousel-item').css('background-image', 'linear-gradient(to bottom,'+bgColor1+','+bgColor2+')');
+        }
+    }
+
+    // load images colors
+    $(document).ready(function() {
+        $('#homepageCarousel .carousel-inner img').each(function(i, img) {
+            setBgForImg(img);
+        });
+    });
+
 })();

@@ -201,6 +201,27 @@
             </a>
         </div>
         </div>
+        
+        <br><hr><br>
+
+        <div class="row rtl">
+            <div class="col-12">
+            <ul class="nav nav-pills social-links">
+                <li style="width: 25%; text-align: center">
+                    <a href="https://www.instagram.com/moshkovich.marina/" target="_blank" title="אינסטוש"><i class="fab fa-instagram" style="color: #8a3ab9;"></i></a>
+                </li>
+                <li style="width: 25%; text-align: center">
+                    <a href="https://www.facebook.com/multashka/photos" target="_blank" title="פייסבוק"><i class="fab fa-facebook"></i></a>
+                </li>
+                <li style="width: 25%; text-align: center">
+                    <a href="mailto:moshkovich.marina@gmail.com" target="_blank" title="אימייל"><i class="far fa-envelope" style="color: #333;"></i></a>
+                </li>
+                <li style="width: 25%; text-align: center">
+                    <a href="https://multashka.com" target="_blank" title="האתר הרשמי - פורטפוליו מלא"><i class="fa fa-globe-africa" style="color: #21577b;"></i></a>
+                </li>
+            </ul>
+            </div>
+        </div>
     </div>
 
     <!-- bottom footer -->

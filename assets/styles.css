@@ -89,3 +89,6 @@ body {
 .categories-bullets button.collapsed .fa-chevron-down {
     display: none;
 }
+.social-links {
+    font-size: 2em;
+}

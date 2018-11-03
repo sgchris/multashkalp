@@ -217,7 +217,7 @@
                     <a href="mailto:moshkovich.marina@gmail.com" target="_blank" title="אימייל"><i class="far fa-envelope" style="color: #333;"></i></a>
                 </li>
                 <li style="width: 25%; text-align: center">
-                    <a href="https://multashka.com" target="_blank" title="האתר הרשמי - פורטפוליו מלא"><i class="fa fa-globe-africa" style="color: #21577b;"></i></a>
+                    <a href="http://multashka.com" target="_blank" title="האתר הרשמי - פורטפוליו מלא"><i class="fa fa-globe-africa" style="color: #21577b;"></i></a>
                 </li>
             </ul>
             </div>

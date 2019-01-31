@@ -38,13 +38,26 @@
 
     window.submitForm = function() {
         var $form = $('.contact-form');
+
+        var $fullname = $form.find('input[name="fullname"]').removeClass('input-error');
+        var $fullnameErr = $form.find('.input-error-message-fullname').css('visibility', 'hidden');
+        var fullnameVal = $fullname.val().trim();
+
         var $phone = $form.find('input[name="phone"]').removeClass('input-error');
         var $phoneErr = $form.find('.input-error-message-phone').css('visibility', 'hidden');
         var phoneVal = $phone.val().trim();
+
         var $email = $form.find('input[name="email"]').removeClass('input-error');
         var $emailErr = $form.find('.input-error-message-email').css('visibility', 'hidden');
         var emailVal = $email.val().trim();
+
         var $submit = $form.find('.contact-form-submit');
+
+        if (!fullnameVal || fullnameVal.length < 2 || fullnameVal.length > 100) {
+            $fullname.addClass('input-error');
+            $fullnameErr.css('visibility', 'visible').text('יש להזין שם מלא תקני בעברית');
+            return false;
+        }
 
         if (!/^\d{8,13}$/.test(phoneVal)) {
             $phone.addClass('input-error');
@@ -63,7 +76,7 @@
             type: 'POST',
             data: {
                 'homepage-intro-form': '1',
-                'homepage-intro-name': '2פנייה מדף פרומו',
+                'homepage-intro-name': 'דף פרומו 2 - פניה מ' + fullnameVal,
                 'homepage-intro-phone': phoneVal,
                 'homepage-intro-email': emailVal,
                 'homepage-intro-message': 'Contact us from the landing page 2 ' + formatDate(new Date()),
